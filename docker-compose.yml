@@ -4,8 +4,15 @@ services:
   mongo:
     image: mongo:4.2.3-bionic
     restart: always
-    command: "--replSet opensilex"
-    
+    command: >
+          bash -c "
+          (
+            sleep 3 &&
+            mongo --eval \"rs.initiate({'_id':'opensilex','members':[{'_id':0,'host':'mongo:27017'}]})\" &&
+            wait 
+          ) & docker-entrypoint.sh --replSet opensilex
+          "
+  
   rdf4j:
     image: eclipse/rdf4j-workbench:amd64-3.4.4
     ports:
@@ -16,8 +23,15 @@ services:
     env_file: opensilex-phis.env
     ports:
        - 8081:8081
-    
-    command: "./bin/1.0.0-rc/opensilex.sh system install"
+    volumes:
+      - ./config:/home/opensilex/config
+      - ./logs:/home/opensilex/logs
+      - ./data:/home/opensilex/data
+    command: >
+          bash -c "
+            ./bin/opensilex.sh system install && 
+            ./bin/opensilex.sh server start --host=192.168.1.94 --port=8081 --adminPort=4081
+          "
     
   nginx:
     image: nginx:1.17
