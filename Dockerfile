@@ -10,6 +10,7 @@ RUN wget ${RELEASE}
 RUN unzip $( basename ${RELEASE} )
 
 COPY ./bin/opensilex.sh /home/opensilex/bin/
+COPY ./bin/logback.xml /home/opensilex/bin/
 
 WORKDIR /home/opensilex
 

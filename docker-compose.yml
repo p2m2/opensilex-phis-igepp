@@ -27,6 +27,7 @@ services:
       - ./config:/home/opensilex/config
       - ./logs:/home/opensilex/logs
       - ./data:/home/opensilex/data
+
     command: >
           bash -c "
             ./bin/opensilex.sh system install && 
