@@ -1,14 +1,17 @@
-FROM openjdk:jdk-buster
+FROM adoptopenjdk/maven-openjdk8:latest
 
-ENV RELEASE https://github.com/OpenSILEX/opensilex/releases/download/1.0.0-rc/opensilex-release-1.0.0-rc.zip
-RUN apt-get -y update && apt-get install -y wget zip 
+ENV RELEASE https://github.com/OpenSILEX/opensilex/archive/refs/tags/1.0.0-rc.tar.gz
+RUN apt-get -y update && apt-get install -y wget zip yarn git 
 
 RUN mkdir -p /home/opensilex
 
 WORKDIR /home/opensilex/bin
-RUN wget ${RELEASE} 
-RUN unzip $( basename ${RELEASE} )
 
+RUN wget ${RELEASE} 
+RUN tar xvf $( basename ${RELEASE} ) --strip-components=1
+RUN mvn install -DskipTests=true
+
+RUN mv ./opensilex-release/target/opensilex/opensilex.jar .
 COPY ./bin/opensilex.sh /home/opensilex/bin/
 COPY ./bin/logback.xml /home/opensilex/bin/
 
