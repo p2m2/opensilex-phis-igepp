@@ -1,7 +1,7 @@
-FROM adoptopenjdk/maven-openjdk8:latest
+FROM maven:3.8.3-adoptopenjdk-8
 
 ENV RELEASE https://github.com/OpenSILEX/opensilex/archive/refs/tags/1.0.0-rc.tar.gz
-RUN apt-get -y update && apt-get install -y wget zip yarn git 
+RUN apt-get -y update && apt-get install -y wget zip yarn git nodejs npm
 
 RUN mkdir -p /home/opensilex
 
