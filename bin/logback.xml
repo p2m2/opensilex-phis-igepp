@@ -4,7 +4,7 @@
     <property name="log.pattern" value="%d{dd MMM yyyy;HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n" />
     <property name="default.log.level" value="INFO"/>
     <property name="opensilex.log.level" value="${opensilex.log.level:-INFO}"/>
-    <property name="log.path" value="."/>
+    <property name="log.path" value="/home/opensilex/logs"/>
     
     <!-- output -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">

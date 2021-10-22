@@ -3,6 +3,12 @@ Docker environnent to deploy opensilex
 
 
 http://localhost:8081
+http://localhost/
 
-OpenSilex Vue App is accessible at: http://localhost:8666/
-OpenSILEX API is accessible at: http://localhost:8666/api-docs
+## administrator
+
+docker exec -it opensilex-phis-igepp_opensilex-phis_1 ./bin/opensilex.sh user add --admin --email=olivier.filangi@inrae.fr --lang=fr --firstName=olivier --lastName=filangi --password=xxxx
+
+
+
+
