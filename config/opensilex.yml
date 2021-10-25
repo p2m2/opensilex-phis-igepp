@@ -17,3 +17,5 @@ big-data:
             host: mongo
             port: 27017
             database: opensilex
+server:
+    publicURI: http://localhost/
