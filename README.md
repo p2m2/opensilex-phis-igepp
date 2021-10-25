@@ -24,11 +24,15 @@ docker exec -it opensilex-phis-igepp_opensilex-phis_1 ./bin/opensilex.sh user ad
 
 reinstall docker/docker-compose
  - https://docs.docker.com/engine/install/debian/
+ - https://docs.docker.com/compose/install/
 
-- `ssh root@192.168.100.250`
+- `ssh debian@192.168.100.121`
 - `git clone https://github.com/p2m2/opensilex-phis-igepp.git`
 - cd opensilex-phis-igepp
 - change publicURI : config/opensilex.yml (http://opensilex-192-168-XXX-YYY.vm.openstack.genouest.org/)
+- stop apache : sudo service apache2 stop
+- change host variable inside opensphis image : 
+- sudo docker-compose up -d
 
 http://opensilex-192-168-100-121.vm.openstack.genouest.org/
 
