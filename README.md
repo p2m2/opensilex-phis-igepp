@@ -7,7 +7,7 @@ http://localhost/
 
 ## administrator
 
-docker exec -it opensilex-phis-igepp_opensilex-phis_1 ./bin/opensilex.sh user add --admin --email=olivier.filangi@inrae.fr --lang=fr --firstName=olivier --lastName=filangi --password=xxxx
+docker exec -it opensilex-phis-igepp_opensilex-phis_1 ./bin/opensilex.sh user add --admin --email=xxxx@yyy.com --lang=fr --firstName=firt --lastName=last --password=xxxx
 
 
 
