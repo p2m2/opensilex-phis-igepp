@@ -1,5 +1,5 @@
 ontologies:
-    baseURI: http://www.opensilex.org/
+    baseURI:  http://www.inrae.fr/igepp/
     baseURIAlias: os
     sparql:
         config:
